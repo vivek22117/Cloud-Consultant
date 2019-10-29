@@ -107,6 +107,15 @@ resource "aws_s3_bucket_object" "img_third" {
   depends_on = [aws_s3_bucket.website_bucket]
 }
 
+resource "aws_s3_bucket_object" "img_fourth" {
+  bucket       = aws_s3_bucket.website_bucket.id
+  source       = "static-content/images/img-4.jpg"
+  key          = "images/img-4.jpg"
+  content_type = "image/jpg"
+
+  depends_on = [aws_s3_bucket.website_bucket]
+}
+
 resource "aws_s3_bucket_object" "img_sitebg" {
   bucket       = aws_s3_bucket.website_bucket.id
   source       = "static-content/images/sitebg.jpg"
