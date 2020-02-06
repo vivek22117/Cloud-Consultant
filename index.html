@@ -303,9 +303,9 @@
         </div>
         <form action="" data-aos="fade-up" data-aos-delay="300">
             <label for="name">Name:</label>
-            <input type="text" id="name" name="name" placeholder="Enter your name..." required>
+            <input type="text" id="name" name="name" placeholder="Enter your name..." required="required" data-error="Firstname is required.">
             <label for="email">Email:</label>
-            <input type="email" id="email" name="email" placeholder="Enter your email..." required>
+            <input type="email" id="email" name="email" placeholder="Enter your email..." required="required" data-error="Email is required.">
             <label for="service">Services:</label>
             <select name="services" id="service">
                 <option value="">AWS Consultation</option>
@@ -314,8 +314,8 @@
                 <option value="">Big Data Consultation</option>
             </select>
             <label for="subject">Subject:</label>
-            <textarea name="subject" id="subject" cols="10" rows="10"></textarea>
-            <input type="submit" value="Submit">
+            <textarea name="subject" id="subject" cols="10" rows="10" required="required"></textarea>
+            <input type="submit" class="btn btn-success btn-send" value="Submit">
         </form>
     </div>
 </section>
