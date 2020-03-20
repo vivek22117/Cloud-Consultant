@@ -51,6 +51,11 @@ variable "s3_static_content" {
   description = "Static website domain name"
 }
 
+variable "domain" {
+  type = string
+  description = "Domain name registered with AWS Route 53"
+}
+
 ####################################
 # Local variables                  #
 ####################################

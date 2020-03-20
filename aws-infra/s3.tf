@@ -179,3 +179,33 @@ resource "aws_s3_bucket_object" "fonts_others_fourth" {
   depends_on = [aws_s3_bucket.website_bucket]
 }
 
+
+data "aws_route53_zone" "main" {
+  name         = var.domain
+  private_zone = false
+}
+
+
+resource "aws_route53_record" "portfolio_web_1" {
+  zone_id  = data.aws_route53_zone.main.zone_id
+  name     = "vivekmishra.doubledigit-solutions.com"
+  type     = "A"
+
+  alias {
+    name    = aws_s3_bucket.website_bucket.website_domain
+    zone_id = aws_s3_bucket.website_bucket.hosted_zone_id
+    evaluate_target_health = false
+  }
+}
+
+resource "aws_route53_record" "portfolio_web_2" {
+  zone_id  = data.aws_route53_zone.main.zone_id
+  name     = "www.vivekmishra.doubledigit-solutions.com"
+  type     = "A"
+
+  alias {
+    name    = aws_s3_bucket.website_bucket.website_domain
+    zone_id = aws_s3_bucket.website_bucket.hosted_zone_id
+    evaluate_target_health = false
+  }
+}
