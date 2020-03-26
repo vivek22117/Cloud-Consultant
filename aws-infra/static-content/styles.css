@@ -357,8 +357,8 @@ li{
     margin: 1rem 0;
 }
 
-.portfolio-description h6{
-    font-size: 1.5rem;
+.portfolio-description h6 {
+    font-size: 1.8rem;
     font-weight: 300;
     opacity: 0.4;
 }
@@ -367,8 +367,7 @@ li{
     margin-right: 2.5rem;
     display: inline-block;
     margin-top: 2rem;
-    font-size: 1.5rem;
-    text-transform: uppercase;
+    font-size: 1.8rem;
     color: #3883ff;
     transition: color 650ms;
 }
@@ -490,7 +489,7 @@ input[type="submit"]:hover{
     position: relative;
 }
 
-.up{
+.up {
     position: absolute;
     width: 5rem;
     height: 5rem;
