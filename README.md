@@ -19,8 +19,8 @@ Project is created with:
 * Jenkins for Automation of Infra and Deployment of Website
 * AWS S3
 * AWS IAM
-* AWS Cloudfront for content delivery
+* AWS Cloudfront and Route 53 for content delivery
 * AWS ACM for SSL certificate
 
 ## Flow-Diagram
-![Data Flow Diagram for RSVP Feeds](./images/flow-diagram.png)
+![Data Flow Diagram Portfolio Website](./image/portfolio-diagram.png)
