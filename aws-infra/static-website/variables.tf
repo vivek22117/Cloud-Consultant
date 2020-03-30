@@ -8,12 +8,12 @@ variable "profile" {
 
 variable "default_region" {
   type = string
-  description = "AWS region name to deploy resources"
+  description = "AWS region to deploy resources"
 }
 
 variable "environment" {
   type = string
-  description = "Environment to deploy"
+  description = "Environment to be configured 'dev', 'qa', 'prod'"
 }
 
 variable "component" {

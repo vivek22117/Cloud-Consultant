@@ -147,7 +147,7 @@
                     Expertise on multiple big data technologies like Apache Spark, Kafka, HDFS, AWS Kinesis, AWS EMR.
                     Familiar with data architecture including data ingestion pipeline design, data modeling and data
                     mining.
-                    Experience optimizing ETL workflows using Spark features. Handled big data pipelines on AWS by
+                    Experience optimizing ETL work-flows using Spark features. Handled big data pipelines on AWS by
                     integrating multiple
                     AWS services like kinesis data stream, dynamoDB, AWS lambda, kinesis firehose.
                 </p>
@@ -295,6 +295,8 @@
             <h6>Let's work together</h6>
         </div>
         <form action="" data-aos="fade-up" data-aos-delay="300">
+            <div id='error-message'></div>
+            <div id='success-message'></div>
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" placeholder="Enter your name..." required>
             <label for="email">Email:</label>
@@ -302,13 +304,16 @@
             <label for="service">Services:</label>
             <select name="services" id="service">
                 <option value="">AWS Consultation</option>
-                <option value="">Web Development</option>
+                <option value="">Application Development</option>
                 <option value="">Training</option>
                 <option value="">Big Data Consultation</option>
+                <option value="">Job Offer</option>
             </select>
             <label for="subject">Subject:</label>
             <textarea name="subject" id="subject" cols="10" rows="10"></textarea>
-            <input type="submit" value="Submit">
+            <input id="emailButton" type="submit" value="Submit">
+
+            <div id='results-message'></div>
         </form>
     </div>
 </section>
@@ -323,5 +328,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script src="script.js"></script>
+<script src="formlogic.js"></script>
 </body>
 </html>

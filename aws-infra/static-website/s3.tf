@@ -38,6 +38,14 @@ resource "aws_s3_bucket" "website_bucket" {
     }
   }
 
+/*  cors_rule {
+    allowed_headers = ["*"]
+    allowed_methods = ["PUT", "GET", "POST"]
+    allowed_origins = ["http://${var.s3_static_content}"]
+    expose_headers  = ["Access-Control-Allow-Origin"]
+    max_age_seconds = 3000
+  }*/
+
   tags = merge(local.common_tags, map("Name", "Portfolio-website"))
 }
 
@@ -138,6 +146,15 @@ resource "aws_s3_bucket_object" "script_file" {
   bucket       = aws_s3_bucket.website_bucket.id
   source       = "static-content/script.js"
   key          = "script.js"
+  content_type = "text/js"
+
+  depends_on = [aws_s3_bucket.website_bucket]
+}
+
+resource "aws_s3_bucket_object" "form_script_file" {
+  bucket       = aws_s3_bucket.website_bucket.id
+  source       = "static-content/formlogic.js"
+  key          = "formlogic.js"
   content_type = "text/js"
 
   depends_on = [aws_s3_bucket.website_bucket]
