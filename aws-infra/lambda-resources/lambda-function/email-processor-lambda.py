@@ -43,7 +43,6 @@ def lambda_handler(event, context):
 
 def perform_operation(data):
     LOG.info("Processing payload %s" % data)
-    message_body = json.dumps(data, indent=2)
 
     try:
         ses.send_email(
@@ -53,7 +52,7 @@ def perform_operation(data):
             },
             Message={
                 'Subject': {'Data': 'A message from professional website!!'},
-                'Body': {'Text': {'Data': message_body}}
+                'Body': {'Text': {'Data': data}}
             }
         )
         return json.dumps({"message": "Successfully delivered!"}), 200

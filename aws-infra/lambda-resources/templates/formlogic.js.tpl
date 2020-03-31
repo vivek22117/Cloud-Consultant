@@ -12,8 +12,8 @@ const resultsDiv = document.getElementById('results-message')
 function nameValue() { return document.getElementById('name').value }
 function emailValue() { return document.getElementById('email').value }
 function serviceValue() {
-                            let srvc = document.getElementById('service')
-                            return srvc.options[srvc.selectedIndex].value
+                            let srvc = document.getElementById('service');
+                            return srvc.options[srvc.selectedIndex].text;
                         }
 function subjectValue() { return document.getElementById('subject').value }
 
@@ -54,7 +54,7 @@ function sendData (e, pref) {
     .then(function(data) {
         console.log(data)
         successDiv.textContent = 'Looks ok!. But check the result below!';
-        resultsDiv.textContent = JSON.stringify(data);
+        resultsDiv.textContent = data;
     })
     .catch(function(err) {
         errorDiv.textContent = 'Still working on this error:\n' + err.toString();
