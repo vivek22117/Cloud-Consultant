@@ -46,6 +46,6 @@ resource "aws_lambda_permission" "allow_api_gateway" {
   function_name = aws_lambda_function.email_reminder.arn
   principal = "apigateway.amazonaws.com"
 
-  source_arn = aws_api_gateway_deployment.portfolio_api_deployment.execution_arn
+  source_arn = "${aws_api_gateway_deployment.portfolio_api_deployment.execution_arn}/*/*/*"
 }
 

@@ -11,7 +11,10 @@ const resultsDiv = document.getElementById('results-message')
 // Setup easy way to reference values of the input boxes
 function nameValue() { return document.getElementById('name').value }
 function emailValue() { return document.getElementById('email').value }
-function serviceValue() { return document.getElementById('service').value }
+function serviceValue() {
+                            let srvc = document.getElementById('service')
+                            return srvc.options[srvc.selectedIndex].value
+                        }
 function subjectValue() { return document.getElementById('subject').value }
 
 function clearNotifications() {
