@@ -27,6 +27,7 @@ function clearNotifications() {
 // Add listeners for each button that make the API request
 document.getElementById('emailButton').addEventListener('click', function(e) {
     sendData(e, 'email');
+    document.getElementById('request-form').reset();
 });
 
 
@@ -54,7 +55,7 @@ function sendData (e, pref) {
     .then(function(data) {
         console.log(data)
         successDiv.textContent = 'Looks ok!. But check the result below!';
-        resultsDiv.textContent = data;
+        resultsDiv.textContent = JSON.stringify(data);
     })
     .catch(function(err) {
         errorDiv.textContent = 'Still working on this error:\n' + err.toString();
