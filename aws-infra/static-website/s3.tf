@@ -90,36 +90,36 @@ resource "aws_s3_bucket_object" "developer_img" {
 
 resource "aws_s3_bucket_object" "img_first" {
   bucket       = aws_s3_bucket.website_bucket.id
-  source       = "static-content/images/img-1.jpg"
-  key          = "images/img-1.jpg"
-  content_type = "image/jpg"
+  source       = "static-content/images/img-1.png"
+  key          = "images/img-1.png"
+  content_type = "image/png"
 
   depends_on = [aws_s3_bucket.website_bucket]
 }
 
 resource "aws_s3_bucket_object" "img_second" {
   bucket       = aws_s3_bucket.website_bucket.id
-  source       = "static-content/images/img-2.jpg"
-  key          = "images/img-2.jpg"
-  content_type = "image/jpg"
+  source       = "static-content/images/img-2.png"
+  key          = "images/img-2.png"
+  content_type = "image/png"
 
   depends_on = [aws_s3_bucket.website_bucket]
 }
 
 resource "aws_s3_bucket_object" "img_third" {
   bucket       = aws_s3_bucket.website_bucket.id
-  source       = "static-content/images/img-3.jpg"
-  key          = "images/img-3.jpg"
-  content_type = "image/jpg"
+  source       = "static-content/images/img-3.png"
+  key          = "images/img-3.png"
+  content_type = "image/png"
 
   depends_on = [aws_s3_bucket.website_bucket]
 }
 
 resource "aws_s3_bucket_object" "img_fourth" {
   bucket       = aws_s3_bucket.website_bucket.id
-  source       = "static-content/images/img-4.jpg"
-  key          = "images/img-4.jpg"
-  content_type = "image/jpg"
+  source       = "static-content/images/img-4.png"
+  key          = "images/img-4.png"
+  content_type = "image/png"
 
   depends_on = [aws_s3_bucket.website_bucket]
 }

@@ -308,7 +308,7 @@ li{
 .skill h1{
     text-transform: uppercase;
     letter-spacing: 2px;
-    margin: 2rem -2px 2rem 0;
+    margin: 2rem -2px 2rem 2rem;
 }
 
 .icon-container{
@@ -392,7 +392,6 @@ li{
 
 .timeline h1{
     font-size: 2rem;
-    text-transform: uppercase;
     font-weight: 300;
     margin-bottom: 1rem;
     opacity: .3;
