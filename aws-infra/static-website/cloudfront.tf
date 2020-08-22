@@ -21,10 +21,6 @@ resource "aws_cloudfront_distribution" "s3_dd_distribution" {
       name  = "User-Agent"
       value = var.dd_secret
     }
-
-    s3_origin_config {
-      origin_access_identity = "origin-access-identity/cloudfront/ABCDEFG1234567"
-    }
   }
 
   enabled             = true
@@ -74,7 +70,7 @@ resource "aws_cloudfront_distribution" "s3_dd_distribution" {
   }
 
   viewer_certificate {
-    acm_certificate_arn      = var.ssl_certificate_arn
+    acm_certificate_arn      = aws_acm_certificate.dd_solutions.0.arn
     ssl_support_method       = "sni-only"
     minimum_protocol_version = "TLSv1"
   }
