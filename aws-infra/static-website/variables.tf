@@ -56,6 +56,40 @@ variable "domain" {
   description = "Domain name registered with AWS Route 53"
 }
 
+variable "s3_origin_id" {
+  type        = string
+  description = "This can be any name to identify this origin."
+}
+
+variable "dd_secret" {
+  type = string
+  description = "Any string to act as custom header!"
+}
+
+variable "cloudfront_price_class" {
+  type        = string
+  description = "PriceClass for CloudFront distribution"
+}
+
+variable "aliases" {
+  type        = list(string)
+  description = "Any other domain aliases to add to the CloudFront distribution"
+}
+
+variable "error_response_code" {
+  type        = string
+  description = "Response code to send on 404"
+}
+
+variable "index_document" {
+  type        = string
+  description = "HTML to show at root"
+}
+
+variable "error_document" {
+  type        = string
+  description = "HTML to show on 404"
+}
 ####################################
 # Local variables                  #
 ####################################
