@@ -9,6 +9,7 @@ provider "template" {
   version = "2.1.2"
 }
 
+
 #############################################################
 # Terraform configuration block is used to define backend   #
 # Interpolation sytanx is not allowed in Backend            #
