@@ -1,6 +1,11 @@
 #############################################################
 # Cloud-Front distribution for S3 static website            #
 #############################################################
+resource "aws_cloudfront_origin_access_identity" "dd_origin_access_identity" {
+  comment = "Some comment"
+}
+
+
 resource "aws_cloudfront_distribution" "s3_dd_distribution" {
 
   http_version = "http2"
@@ -8,6 +13,10 @@ resource "aws_cloudfront_distribution" "s3_dd_distribution" {
   origin {
     domain_name = aws_s3_bucket.website_bucket.bucket_regional_domain_name
     origin_id   = var.s3_origin_id
+
+    s3_origin_config {
+      origin_access_identity = aws_cloudfront_origin_access_identity.dd_origin_access_identity.cloudfront_access_identity_path
+    }
 
     custom_origin_config {
       // These are all the defaults.

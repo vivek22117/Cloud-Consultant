@@ -14,7 +14,7 @@ resource "aws_s3_bucket" "website_bucket" {
   depends_on = [data.template_file.bucket_policy]
 
   bucket = var.s3_static_content
-  acl    = "public-read"
+  acl    = "private"
 
   policy        = data.template_file.bucket_policy.rendered
   force_destroy = false
