@@ -2,29 +2,14 @@
   "Version": "2012-10-17",
   "Statement": [
     {
-      "Sid": "EveryOneReadAccess",
-      "Principal": "*",
+      "Principal": {
+        "AWS": "${CDN_OAI}"
+      },
       "Effect": "Allow",
       "Action": [
         "s3:GetObject"
       ],
       "Resource": "arn:aws:s3:::${bucket}/*"
-    },
-    {
-      "Sid": "AllowedIPAccess",
-      "Principal": "*",
-      "Effect": "Allow",
-      "Action": [
-        "s3:GetObject"
-      ],
-      "Resource": "arn:aws:s3:::${bucket}/*",
-      "Condition" : {
-        "IpAddress": {
-          "aws:sourceIp": [
-            "${allowed_ips}"
-          ]
-        }
-      }
     }
   ]
 }
