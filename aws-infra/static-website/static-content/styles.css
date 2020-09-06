@@ -233,6 +233,12 @@ li{
     font-weight: 300;
 }
 
+.landing-text h5{
+    font-size: 2rem;
+    font-weight: 300;
+    color: goldenrod;
+}
+
 /*About*/
 .about .container{
     display: flex;
@@ -540,6 +546,11 @@ input[type="submit"]:hover{
     .landing-text h6{
         font-size: 1.5rem;
     }
+
+    .landing-text h5{
+        font-size: 1.5rem;
+    }
+
     .nav-list{
         flex-direction: column;
     }
@@ -592,6 +603,11 @@ input[type="submit"]:hover{
     .landing-text h6{
         font-size: 1.3rem;
     }
+
+    .landing-text h5{
+        font-size: 1.5rem;
+    }
+
     .nav-link{
         font-size: 3rem;
     }
