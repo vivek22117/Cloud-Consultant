@@ -23,19 +23,6 @@ resource "aws_cloudfront_distribution" "s3_dd_distribution" {
     s3_origin_config {
       origin_access_identity = aws_cloudfront_origin_access_identity.dd_origin_access_identity.cloudfront_access_identity_path
     }
-
-//    custom_origin_config {
-//      // These are all the defaults.
-//      http_port              = "80"
-//      https_port             = "443"
-//      origin_protocol_policy = "http-only"
-//      origin_ssl_protocols   = ["TLSv1", "TLSv1.1", "TLSv1.2"]
-//    }
-//
-//    custom_header {
-//      name  = "User-Agent"
-//      value = var.dd_secret
-//    }
   }
 
 
@@ -55,7 +42,7 @@ resource "aws_cloudfront_distribution" "s3_dd_distribution" {
 
     viewer_protocol_policy = "redirect-to-https"
     min_ttl                = 0
-    default_ttl            = 3600
+    default_ttl            = 300
     max_ttl                = 86400
   }
 
