@@ -79,8 +79,8 @@ resource "aws_s3_bucket_object" "css_file" {
 
 resource "aws_s3_bucket_object" "developer_img" {
   bucket       = aws_s3_bucket.website_bucket.id
-  source       = "static-content/images/developer.jpg"
-  key          = "images/developer.jpg"
+  source       = "static-content/images/vivek.jpg"
+  key          = "images/vivek.jpg"
   content_type = "image/jpg"
 
   depends_on = [aws_s3_bucket.website_bucket]
