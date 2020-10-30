@@ -2,22 +2,22 @@
 # Global Variables          #
 #############################
 variable "profile" {
-  type = string
+  type        = string
   description = "AWS profile name for credentials"
 }
 
 variable "default_region" {
-  type = string
+  type        = string
   description = "AWS region to deploy resources"
 }
 
 variable "environment" {
-  type = string
+  type        = string
   description = "Environment to be configured 'dev', 'qa', 'prod'"
 }
 
 variable "component" {
-  type = string
+  type        = string
   description = "Component name for tfstate"
 }
 
@@ -47,12 +47,12 @@ variable "noncurrent_version_expiration_days" {
 }
 
 variable "s3_static_content" {
-  type    = string
+  type        = string
   description = "Static website domain name"
 }
 
 variable "domain" {
-  type = string
+  type        = string
   description = "Domain name registered with AWS Route 53"
 }
 
@@ -62,7 +62,7 @@ variable "s3_origin_id" {
 }
 
 variable "dd_secret" {
-  type = string
+  type        = string
   description = "Any string to act as custom header!"
 }
 

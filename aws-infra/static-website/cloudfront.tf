@@ -9,7 +9,7 @@ resource "aws_cloudfront_origin_access_identity" "dd_origin_access_identity" {
 resource "aws_cloudfront_distribution" "s3_dd_distribution" {
   depends_on = [aws_acm_certificate.dd_solutions, aws_acm_certificate_validation.cert, aws_route53_record.cert_validation]
 
-  http_version = "http2"
+  http_version        = "http2"
   enabled             = true
   is_ipv6_enabled     = false
   default_root_object = var.index_document
@@ -30,7 +30,7 @@ resource "aws_cloudfront_distribution" "s3_dd_distribution" {
     allowed_methods  = ["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"]
     cached_methods   = ["GET", "HEAD", "OPTIONS"]
     target_origin_id = var.s3_origin_id
-    compress = true
+    compress         = true
 
     forwarded_values {
       query_string = false

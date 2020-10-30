@@ -3,7 +3,7 @@ data "template_file" "bucket_policy" {
   template = file("scripts/bucket-policy.json")
 
   vars = {
-    bucket      = var.s3_static_content
+    bucket  = var.s3_static_content
     CDN_OAI = aws_cloudfront_origin_access_identity.dd_origin_access_identity.iam_arn
   }
 }
@@ -36,7 +36,7 @@ resource "aws_s3_bucket" "website_bucket" {
     }
   }
 
-/*  cors_rule {
+  /*  cors_rule {
     allowed_headers = ["*"]
     allowed_methods = ["PUT", "GET", "POST"]
     allowed_origins = ["http://${var.s3_static_content}"]
@@ -52,7 +52,7 @@ resource "aws_s3_bucket_object" "index_file" {
   source       = "static-content/index.html"
   key          = "index.html"
   content_type = "text/html"
-  etag   = filemd5("${path.module}/static-content/index.html")
+  etag         = filemd5("${path.module}/static-content/index.html")
 
   depends_on = [aws_s3_bucket.website_bucket]
 }
@@ -62,7 +62,7 @@ resource "aws_s3_bucket_object" "error_file" {
   source       = "static-content/error.html"
   key          = "error.html"
   content_type = "text/html"
-  etag   = filemd5("${path.module}/static-content/error.html")
+  etag         = filemd5("${path.module}/static-content/error.html")
 
   depends_on = [aws_s3_bucket.website_bucket]
 }
@@ -72,7 +72,7 @@ resource "aws_s3_bucket_object" "css_file" {
   source       = "static-content/styles.css"
   key          = "styles.css"
   content_type = "text/css"
-  etag   = filemd5("${path.module}/static-content/styles.css")
+  etag         = filemd5("${path.module}/static-content/styles.css")
 
   depends_on = [aws_s3_bucket.website_bucket]
 }
