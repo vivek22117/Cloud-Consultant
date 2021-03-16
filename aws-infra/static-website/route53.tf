@@ -8,7 +8,7 @@ data "aws_route53_zone" "public" {
 resource "aws_acm_certificate" "dd_solutions" {
 
   domain_name               = var.domain
-  subject_alternative_names = ["vivekmishra.doubledigit-solutions.com", "www.vivekmishra.doubledigit-solutions.com"]
+  subject_alternative_names = ["vivek-k-mishra.in", "www.vivek-k-mishra.in"]
   validation_method         = "DNS"
 
   lifecycle {
@@ -18,6 +18,7 @@ resource "aws_acm_certificate" "dd_solutions" {
 
 # This is a DNS record for the ACM certificate validation to prove we own the domain
 resource "aws_route53_record" "cert_validation" {
+  depends_on = [aws_acm_certificate.dd_solutions]
 
   for_each = {
     for dvo in aws_acm_certificate.dd_solutions.domain_validation_options : dvo.domain_name => {
@@ -37,6 +38,7 @@ resource "aws_route53_record" "cert_validation" {
 
 # This tells terraform to cause the route53 validation to happen
 resource "aws_acm_certificate_validation" "cert" {
+  depends_on = [aws_route53_record.cert_validation, aws_acm_certificate.dd_solutions]
 
   timeouts {
     create = "20m"
@@ -49,7 +51,7 @@ resource "aws_acm_certificate_validation" "cert" {
 
 resource "aws_route53_record" "portfolio_web_1" {
   zone_id = data.aws_route53_zone.public.zone_id
-  name    = "vivekmishra.doubledigit-solutions.com"
+  name    = "vivek-k-mishra.in"
   type    = "A"
 
   alias {
@@ -61,7 +63,7 @@ resource "aws_route53_record" "portfolio_web_1" {
 
 resource "aws_route53_record" "portfolio_web_2" {
   zone_id = data.aws_route53_zone.public.zone_id
-  name    = "www.vivekmishra.doubledigit-solutions.com"
+  name    = "www.vivek-k-mishra.in"
   type    = "A"
 
   alias {
