@@ -8,7 +8,7 @@ data "aws_route53_zone" "public" {
 resource "aws_acm_certificate" "dd_solutions" {
 
   domain_name               = var.domain
-  subject_alternative_names = ["vivek-k-mishra.in", "www.vivek-k-mishra.in"]
+  subject_alternative_names = ["www.vivek-k-mishra.in"]
   validation_method         = "DNS"
 
   lifecycle {
