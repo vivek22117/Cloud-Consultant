@@ -115,6 +115,24 @@ resource "aws_s3_bucket_object" "img_fourth" {
   depends_on = [aws_s3_bucket.website_bucket]
 }
 
+resource "aws_s3_bucket_object" "img_fifth" {
+  bucket       = aws_s3_bucket.website_bucket.id
+  source       = "static-content/images/img-5.png"
+  key          = "images/img-5.png"
+  content_type = "image/png"
+
+  depends_on = [aws_s3_bucket.website_bucket]
+}
+
+resource "aws_s3_bucket_object" "img_sixth" {
+  bucket       = aws_s3_bucket.website_bucket.id
+  source       = "static-content/images/img-6.png"
+  key          = "images/img-6.png"
+  content_type = "image/png"
+
+  depends_on = [aws_s3_bucket.website_bucket]
+}
+
 resource "aws_s3_bucket_object" "img_sitebg" {
   bucket       = aws_s3_bucket.website_bucket.id
   source       = "static-content/images/sitebg.jpg"
