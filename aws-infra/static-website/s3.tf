@@ -8,36 +8,6 @@ data "template_file" "bucket_policy" {
   }
 }
 
-resource "aws_s3_bucket" "double_digit_website_bucket" {
-  depends_on = [data.template_file.bucket_policy]
-
-  bucket = var.s3_static_content
-  acl    = "private"
-
-  policy        = data.template_file.bucket_policy.rendered
-  force_destroy = false
-
-  website {
-    index_document = "index.html"
-    error_document = "error.html"
-  }
-
-  versioning {
-    enabled = var.versioning_enabled
-  }
-
-  lifecycle_rule {
-    id      = "staticFile"
-    enabled = var.lifecycle_rule_enabled
-    prefix  = var.prefix
-
-    noncurrent_version_expiration {
-      days = var.noncurrent_version_expiration_days
-    }
-  }
-
-  tags = merge(local.common_tags, map("Name", "DoubleDigit-website"))
-}
 
 resource "aws_s3_bucket" "website_bucket" {
   depends_on = [data.template_file.bucket_policy]
