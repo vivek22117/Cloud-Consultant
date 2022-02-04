@@ -97,7 +97,7 @@ variable "error_document" {
 locals {
   common_tags = {
     owner       = "Vivek"
-    team        = "TeamConcept"
+    team        = "DD-Team"
     environment = var.environment
   }
 }
